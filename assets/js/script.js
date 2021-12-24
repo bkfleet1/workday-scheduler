@@ -6,7 +6,8 @@ window.onload = function () {
 
     displayCurrentDate(currentTime);
     displayCurrentTime(currentTime);
-    displayBusinessHours(hour);
+    displayBusinessHours(currentHour);
+
 }
 
 function displayCurrentDate(currentTime) {
@@ -18,75 +19,76 @@ function displayCurrentTime(currentTime) {
 };
 
 
-function displayBusinessHours(hour) {
+
+
+function displayBusinessHours(currentHour) {
     for (let i = 8; i < 17; i++) {
-    const timeSlotBlock = timeSlotBlocks(hour);
-    const timeSlotRow = timeSlotRows(hour);
-    const timeSlotHour = hourItem(hour);
-    const timeSlotText = textAreaItem(hour, currentHour);
-    const saveBtn = saveBtnItem(hour);
+    const timeSlotBlock = timeSlotBlocks(i);
+    const timeSlotRow = timeSlotRows(i);
+    const timeSlotHour = hourItem(i);
+    const timeSlotText = textAreaItem(i, currentHour);
+    const saveBtn = saveBtnItem(i);
+    const timeSlots = [timeSlotHour,timeSlotText,saveBtn];
+    
     document.querySelector('.container').appendChild(timeSlotBlock);
     document.querySelector.timeSlotBlock.appendChild(timeSlotRow);
-    document.querySelector.timeSlotRow.appendChild(timeSlotHour,timeSlotText,saveBtn);  
-
+    document.querySelector.timeSlotRow.appendChild(timeSlots);
     }
+}
 
-function timeSlotBlocks(hour) {
+function timeSlotBlocks(i) {
     const timeSlotBlocks = document.createElement("div");
-    timeSlotBlocks.classList.add("row","time-slot-block");
-    timeSlotBlocks.id = "timeSlotBlock-${hour}";
+    timeSlotBlocks.classList.add("row");
+    timeSlotBlocks.id = "timeSlotBlock-${i}";
     return timeSlotBlocks;
 }
 
-function timeSlotRows(hour,timeSlotHour,timeSlotText,saveBtn) {
+function timeSlotRows(i) {
     const timeSlotRows = document.createElement("div");
-    timeSlotRows.classList.add("col-12")
-    timeSlotRows.id = "timeSlotRow-${hour}"
-    
+    timeSlotRows.classList.add("col-12");
+    timeSlotRows.id = "timeSlotRow-${i}";
     return timeSlotRows;
 }
 
 
-function hourItem(hour) {
+function hourItem(i) {
     const timeSlotHour = document.createElement("div");
     timeSlotHour.classList.add("hour","col-md-1","d-flex","justify-content-end","pt-3");
-    timeSlotHour.textContent = hour
+    timeSlotHour.textContent = i;
     return timeSlotHour;
 }
 
-/* function displayHour(hour) {
-    const stringHour = toString(hour);
+/*
+
+function displayHour(i) {
+    const stringHour = toString(i);
     return displayHour(stringHour).format("hA")
 } */
 
 
 
 
-function textAreaItem(hour, currentHour) {
+function textAreaItem(i, currentHour) {
     const timeSlotText = document.createElement("div");
-    timeSlotText.classList.add(textAreaItemBG(hour, currentHour), "col-md-10");
+    timeSlotText.classList.add(textAreaItemBG(i, currentHour), "col-md-10");
     return timeSlotText;
 }
 
-function textAreaItemBG(hour, currentHour) {
-    if (hour = currentHour) {
-        return "current"
-    } else if (hour > currentHour) {
-        return "future"
+function textAreaItemBG(i, currentHour) {
+    if (i == currentHour) {
+        timeSlotText.classList.add( "present")
+    } else if (i > currentHour) {
+        timeSlotText.classList.add( "future")
     }
     else
-        return "past"
+    timeSlotText.classList.add( "past")
 }
 
 
-function saveBtnItem(hour) {
+function saveBtnItem(i) {
     const saveBtn = document.createElement("div");
     saveBtn.classList.add("saveBtn", "col-md-1");
-    saveBtn.setAttribute("data-hour", hour);
+    saveBtn.id = "saveBtnItem-${i}";
     saveBtn.innerHTML = '<i class = "fas fas-save"></i>';
     return saveBtn;
-}
-
-
-
 };
