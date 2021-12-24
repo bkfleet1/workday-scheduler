@@ -34,7 +34,9 @@ function displayBusinessHours(currentHour) {
     
     document.querySelector(".container").appendChild(timeSlotBlock);
     document.querySelector("#timeSlotBlock-"+ i).appendChild(timeSlotRow);
-    document.querySelector("#timeSlotRow-"+ i).appendChild(timeSlotHour,timeSlotText,saveBtn);
+    document.querySelector("#timeSlotRow-"+ i).appendChild(timeSlotHour);
+    document.querySelector("#timeSlotRow-"+ i).appendChild(timeSlotText);
+    document.querySelector("#timeSlotRow-"+ i).appendChild(saveBtn);
     }
 }
 
@@ -48,7 +50,7 @@ function timeSlotBlocks(i) {
 
 function timeSlotRows(i) {
     const timeSlotRows = document.createElement("div");
-    timeSlotRows.classList.add("col-12");
+    timeSlotRows.classList.add("col-12","d-flex");
     timeSlotRows.id = "timeSlotRow-"+ i;
     return timeSlotRows;
 }
@@ -56,8 +58,9 @@ function timeSlotRows(i) {
 
 function hourItem(i) {
     const timeSlotHour = document.createElement("div");
-    timeSlotHour.classList.add("hour","col-md-1","d-flex","justify-content-end","pt-3");
+    timeSlotHour.classList.add("hour","col-md-1","justify-content-end","pt-3");
     timeSlotHour.textContent = i;
+    timeSlotHour.id = "timeSlotHour-" + i;
     return timeSlotHour;
 }
 
@@ -73,7 +76,9 @@ function displayHour(i) {
 
 function textAreaItem(i, currentHour) {
     const timeSlotText = document.createElement("div");
+  //  timeSlotText.classList.add("col-md-10");
     timeSlotText.classList.add(textAreaItemBG(i, currentHour), "col-md-10");
+    timeSlotText.id = "timeSlotText-" + i;
     return timeSlotText;
 }
 
@@ -93,6 +98,6 @@ function saveBtnItem(i) {
     const saveBtn = document.createElement("div");
     saveBtn.classList.add("saveBtn", "col-md-1");
     saveBtn.id = "saveBtnItem-" + i;
-    saveBtn.innerHTML = '<i class = "fas fas-save"></i>';
+    saveBtn.innerHTML = '<i class="far fa-save fa-2x"></i>';
     return saveBtn;
 };
