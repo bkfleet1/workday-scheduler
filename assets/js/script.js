@@ -24,7 +24,7 @@ function displayCurrentTime(currentTime) {
 
 
 function displayBusinessHours(currentHour) {
-    for (let i = 8; i < 17; i++) {
+    for (let i = 8; i < 18; i++) {
     const timeSlotBlock = timeSlotBlocks(i);
     const timeSlotRow = timeSlotRows(i);
     const timeSlotHour = hourItem(i);
@@ -58,14 +58,28 @@ function timeSlotRows(i) {
 
 function hourItem(i) {
     const timeSlotHour = document.createElement("div");
-    timeSlotHour.classList.add("hour","col-md-1","justify-content-end","pt-3");
-    timeSlotHour.textContent = i;
+    timeSlotHour.classList.add("hour","col-md-1","justify-content-end","pt-3","font-weight-bold");
+    timeSlotHour.textContent = formatHour(i);
     timeSlotHour.id = "timeSlotHour-" + i;
     return timeSlotHour;
 }
 
-/*
+function formatHour(i) {
+    if (i == 8 || i == "8") { return "8AM"}
+    else if (i == 9 || i == "9") { return "9AM"}
+    else if (i == 10 || i == "10") { return "10AM"}
+    else if (i == 11 || i == "11") { return "11AM"}
+    else if (i == 12 || i == "12") { return "12PM"}
+    else if (i == 13 || i == "13") { return "1PM"}
+    else if (i == 14 || i == "14") { return "2PM"}
+    else if (i == 15 || i == "15") { return "3PM"}
+    else if (i == 16 || i == "16") { return "4PM"}
+    else if (i == 17 || i == "17") { return "5PM"}
+    else return i
+}
 
+
+/*
 function displayHour(i) {
     const stringHour = toString(i);
     return displayHour(stringHour).format("hA")
@@ -76,7 +90,6 @@ function displayHour(i) {
 
 function textAreaItem(i, currentHour) {
     const timeSlotText = document.createElement("div");
-  //  timeSlotText.classList.add("col-md-10");
     timeSlotText.classList.add(textAreaItemBG(i, currentHour), "col-md-10");
     timeSlotText.id = "timeSlotText-" + i;
     return timeSlotText;
