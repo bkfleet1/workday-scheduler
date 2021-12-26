@@ -36,7 +36,6 @@ function timeSlotBlocks(i) {
     const timeSlotBlocks = document.createElement("div");
     timeSlotBlocks.classList.add("row");
     timeSlotBlocks.id = "timeSlotBlock-" + i;
-    console.log(timeSlotBlocks);
     return timeSlotBlocks;
 }
 
