@@ -7,7 +7,6 @@ displayBusinessHours(currentHour);
 
 
 
-
 function displayCurrentDate(currentTime) {
     document.getElementById("currentDay").textContent = currentTime.format("dddd, MMMM DD, YYYY");
 };
@@ -26,14 +25,12 @@ function displayBusinessHours(currentHour) {
         const timeSlotHour = hourItem(i);
         const timeSlotText = textAreaItem(i, currentHour);
         const saveBtn = saveBtnItem(i);
-        const timeSlotTask = taskItem(i);
- 
+
 
         document.querySelector(".container").appendChild(timeSlotBlock);
         document.querySelector("#timeSlotBlock-" + i).appendChild(timeSlotRow);
         document.querySelector("#timeSlotRow-" + i).appendChild(timeSlotHour);
         document.querySelector("#timeSlotRow-" + i).appendChild(timeSlotText);
-        document.querySelector("#timeSlotText-" + i).appendChild(timeSlotTask);
         document.querySelector("#timeSlotRow-" + i).appendChild(saveBtn);
 
     }
@@ -79,19 +76,13 @@ function formatHour(i) {
 
 
 function textAreaItem(i, currentHour) {
-    const timeSlotText = document.createElement("div");
+    const timeSlotText = document.createElement("textarea");
     timeSlotText.classList.add(textAreaItemBG(i, currentHour), "col-md-10", "task-item");
     timeSlotText.id = "timeSlotText-" + i;
- //   timeSlotText.innerHTML = '<textarea></textarea>';
-    return timeSlotText;}
-
-   function taskItem(i) {
-        const timeSlotTask = document.createElement("textarea");
-        timeSlotTask.classList.add("task");
-        timeSlotTask.id = "timeSlotTask-" + i;
-        timeSlotTask.text = "";
-        return timeSlotTask;
+    timeSlotText.text = "";
+     return timeSlotText;
 }
+
 
 function textAreaItemBG(i, currentHour) {
     if (i == currentHour) {
@@ -116,7 +107,7 @@ function saveBtnItem(i) {
 $(document).ready(function () {
     $('.saveBtn').on('click',function () {
         var savedTimeSlot = $(this).parent().attr('id');
-        var savedTask = $(this).siblings('task-item').val();
+        var savedTask = $(this).siblings('textarea').val();
         console.log(savedTimeSlot);
         console.log(savedTask);
         localStorage.setItem(savedTimeSlot, savedTask);
