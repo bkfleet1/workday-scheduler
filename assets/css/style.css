@@ -91,6 +91,10 @@ textarea{
   transition: all .3s ease-in-out;
 }
 
-.task, .form-control{
+.task {
+  width: 100%;
+  height: 100%;
+  margin: 1px;
   color:#000000;
+  border: none;
 }
