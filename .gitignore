@@ -1,4 +1,12 @@
-node_modules
-package-lock.json
-.vscode
 .DS_Store
+.log
+.lock
+.tmp
+.o
+.class
+.vsdx
+.psd
+.ai
+.doc
+.docx
+Thumbs.db

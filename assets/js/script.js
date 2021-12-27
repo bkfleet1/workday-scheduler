@@ -11,7 +11,7 @@ function displayCurrentDate(currentTime) {
     document.getElementById("currentDay").textContent = currentTime.format("dddd, MMMM DD, YYYY");
 };
 
-// function utilizes the a for loop create the time slots dynamically and append them to the div with class "container".
+// function utilizes a for loop create the time slots dynamically for each business hour (8AM - 5PM) and assembles them under the div class "container".
 function displayBusinessHours(currentHour) {
     for (let i = 8; i < 18; i++) {
         const timeSlotBlock = timeSlotBlocks(i);
