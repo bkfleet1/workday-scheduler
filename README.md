@@ -62,7 +62,7 @@ The developer performed the following steps to initiate the project.
 A working version of the application and application files (repository) are available at the following locations.
 
 > - Deployed application: https://bkfleet1.github.io/workday-scheduler/
->>> [deployed application](./assets/images/application.png)
+>>> [deployed application image](./assets/images/application.png)
 
 > - GitHub repository: https://github.com/bkfleet1/workday-scheduler
 >>> [GitHub repository image](./assets/images/repository.png)
@@ -89,16 +89,16 @@ The application's HTML page (index.html) consists of the following structure.
 >> - script (javascript sources)
 
 The following graphic further illustrates the site structure. Note that there are several elements that are dynamically created by the script.js file.
-[workday schedule application architecture](./assets/images/workday-design.png) 
+[workday schedule application architecture image](./assets/images/workday-design.png) 
 
 
 ### HTML file Modifications
 The HTML file remains largely unchanged from its original code set, except for the following modifications.
 1. - The location of the "style.css" file in the head element.
-[Modification of the CSS file location](./assets/images/html-1.png) 
+[Modification of the CSS file location image](./assets/images/html-1.png) 
 
 2. - The addition of javascript source. (i.e., src="./assets/js/script.js")
-[Additon of the script.js file](./assets/images/html-2.png) 
+[Added script.js file image](./assets/images/html-2.png) 
 
 
 ## Javascript
@@ -146,24 +146,24 @@ The following information addresses deployed application's fulfillment of the ac
 
 > - Requirement 1. When I open the planner, then the current day is displayed at the top of the calendar
 >>> The following image illustrates the display of the current date at the top of the calendar upon launch.
->>> [current date displayed](./assets/images/application-1.png)
+>>> [current date displayed image](./assets/images/application-1.png)
 
 > - Requirement 2. When I scroll down, then I am presented with time blocks for standard business hours.
 >>> The image below demonstrates presentation of a time block for each standard business houer (8AM - 5PM).
->>> [individual time blocks displayed](./assets/images/application-2.png)
+>>> [individual time blocks displayed image](./assets/images/application-2.png)
 
 > - Requirement 3. When I view the time blocks for that day, then each time block is color-coded to indicate whether it is in the past, present, or future.
 >>> The image below demonstrates the color-coding of each block to indicate whether it is in the past, present, or future.
->>> [color coded blocks displayed](./assets/images/application-3.png)
+>>> [color coded blocks displayed image](./assets/images/application-3.png)
 
 > - Requirement 4. When I click into a time block, then I can enter an event.
 >>> The image below demonstrates the ability to enter text into a time block textarea.
->>> [enter data into textarea](./assets/images/application-vid.png)
+>>> [enter data into textarea image](./assets/images/application-vid.gif)
 
 > - Requirement 5. When I click the save button for that time block, then the text for that event is saved in local storage.
 >>> The image below illustrates the data saved to the local storage upon save. Also shown is text that is not saved. The save data is shown in the chrome console on the right side.
->>> [save data to localstorage](./assets/images/application-vid.png)
+>>> [save data to localstorage image](./assets/images/application-vid.gif)
 
 > - Requirement 6. When I refresh the page, then the saved events persist.
 >>> The image below demonstrates retrieval of data that is saved, but also data is not saved is not persistent.
->>> [retrieve data from localstorage](./assets/images/application-vid.png)
+>>> [retrieve data from localstorage image](./assets/images/application-vid.gif)
